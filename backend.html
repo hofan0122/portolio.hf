@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>HO FAN — Archive manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="backend-page">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="回到公開作品集">HF<span>．</span></a>
+    <p class="backend-label">Archive manager</p>
+    <a class="header-contact" href="index.html">回到作品集 <span>↗</span></a>
+  </header>
+
+  <main class="backend-main">
+    <section class="backend-intro">
+      <div>
+        <p class="eyebrow">Private workspace</p>
+        <h1>整理你的<br /><em>影像檔案。</em></h1>
+      </div>
+      <p class="intro-copy">上傳後選擇所屬分組，系統會依照照片實際邊長自動判斷橫向或直向。</p>
+    </section>
+
+    <section class="manager-panel" aria-labelledby="upload-title">
+      <div class="manager-panel-heading">
+        <div><p class="eyebrow">Add photographs</p><h2 id="upload-title">新增照片</h2></div>
+        <span class="storage-note">Saved in this browser</span>
+      </div>
+      <div class="manager-controls">
+        <label for="upload-group">加入分組</label>
+        <select id="upload-group">
+          <option value="2024">2024.10.18 · 山海之間</option>
+          <option value="2023">2023.06.03 · 夏日肖像日</option>
+          <option value="2022">2022.08.21 · 城市夜行</option>
+          <option value="2021">2021.11.27 · 台北散步節</option>
+          <option value="2020">2020.03.14 · 春日田野</option>
+        </select>
+        <label class="manager-button" for="photo-input">選擇圖檔</label>
+        <input id="photo-input" type="file" accept="image/*" multiple hidden />
+      </div>
+      <div id="drop-zone" class="manager-drop-zone" tabindex="0" role="button" aria-controls="photo-input">
+        <strong>將照片拖曳到這裡</strong><span>支援一次加入多張圖檔</span>
+      </div>
+      <p id="upload-status" class="manager-status" aria-live="polite"></p>
+    </section>
+
+    <section class="manager-library" aria-labelledby="library-title">
+      <div class="manager-library-heading">
+        <div><p class="eyebrow">Current uploads</p><h2 id="library-title">已上傳照片</h2></div>
+        <button id="clear-uploads" class="clear-button" type="button">清除全部上傳</button>
+      </div>
+      <div id="upload-library" class="upload-library"></div>
+      <p id="empty-library" class="empty-library">目前還沒有透過管理頁加入的照片。</p>
+    </section>
+  </main>
+
+  <script src="backend.js"></script>
+</body>
+</html>
